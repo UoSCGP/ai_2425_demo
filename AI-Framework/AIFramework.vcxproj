@@ -160,14 +160,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\BaseEntity.cpp" />
+    <ClCompile Include="src\Boid.cpp" />
     <ClCompile Include="src\Grid.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\UtilRandom.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\BaseEntity.h" />
+    <ClInclude Include="headers\Boid.h" />
     <ClInclude Include="headers\Constants.h" />
     <ClInclude Include="headers\Grid.h" />
+    <ClInclude Include="headers\UtilFunc.h" />
     <ClInclude Include="headers\UtilRandom.h" />
   </ItemGroup>
   <ItemGroup>

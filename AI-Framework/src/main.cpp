@@ -5,6 +5,7 @@
 #include "../headers/UtilRandom.h"
 #include "../headers/Constants.h"
 
+#include "../headers/Boid.h"
 #include "../headers/Grid.h"
 
 int main()
@@ -35,7 +36,7 @@ int main()
 
 	for (int i = 0; i < MaxBoids; ++i)
 	{
-		entities.push_back(new BaseEntity());
+		entities.push_back(new Boid());
 		entities[i]->Initialize();
 	}
 
@@ -53,10 +54,10 @@ int main()
 			{
 				if (event.key.code == sf::Keyboard::Space)
 				{
-					/*for (BaseEntity* agent : BaseEntity::Renderables)
+					for (BaseEntity* agent : BaseEntity::Renderables)
 					{
 						agent->RandomisePosition();
-					}*/
+					}
 
 					grid.generate_dungeon();
 				}
@@ -67,15 +68,15 @@ int main()
 		window.clear();
 		
 		// update all our entities
-		//for ( auto entity : BaseEntity::Renderables )
-		//{
-		//	entity->Think();
-		//}
+		for ( auto entity : BaseEntity::Renderables )
+		{
+			entity->Think();
+		}
 
-		//for (auto entity : BaseEntity::Renderables)
-		//{
-		//	entity->Update();
-		//}
+		for (auto entity : BaseEntity::Renderables)
+		{
+			entity->Update();
+		}
 
 		// and then draw them
 		for (auto entity : BaseEntity::Renderables)
