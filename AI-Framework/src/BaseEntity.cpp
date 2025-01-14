@@ -36,21 +36,21 @@ void BaseEntity::Update()
 	velocity += acceleration;
 
 	// build a new position vector by adding a scaled version of the velocity vector
-	sf::Vector2f pos = getPosition() + (velocity * 0.1f);
+	sf::Vector2f newPosition = getPosition() + (velocity * 0.1f);
 
 	// wrap!
-	if (pos.x > ScreenWidth)
-		pos.x = 0.001f;
-	if (pos.x < 0)
-		pos.x = ScreenWidth;
+	if (newPosition.x > ScreenWidth)
+		newPosition.x = 0.001f;
+	if (newPosition.x < 0)
+		newPosition.x = ScreenWidth;
 
-	if (pos.y > ScreenHeight)
-		pos.y = 0.001f;
-	if (pos.y < 0)
-		pos.y = ScreenHeight;
+	if (newPosition.y > ScreenHeight)
+		newPosition.y = 0.001f;
+	if (newPosition.y < 0)
+		newPosition.y = ScreenHeight;
 
 	// update our position
-	setPosition(pos);
+	setPosition(newPosition);
 
 	acceleration *= 0.0f;
 }
@@ -92,11 +92,11 @@ void BaseEntity::Initialize()
 	texture.setSmooth(true);
 	// and provide the sprite with a pointer to the texture object
 	// if the texture object is destroyed (goes out of scope etc) then the sprite will display weirdly
-	sprite.setTexture(texture);
+	setTexture(texture);
 	// set up our colour tint
-	sprite.setColor(colourTint);
+	setColor(colourTint);
 	
-	sprite.setOrigin(texture.getSize().x / 2, texture.getSize().y / 2);
+	setOrigin(texture.getSize().x / 2, texture.getSize().y / 2);
 
 	ResetVelocity();
 

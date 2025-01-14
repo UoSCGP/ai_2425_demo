@@ -17,7 +17,7 @@
 
 #include <math.h>
 
-class BaseEntity : public sf::Transformable
+class BaseEntity : public sf::Sprite
 {
 public:
 	/**
@@ -58,12 +58,6 @@ public:
 	void Update();
 
 	/**
-	 * GetSprite provides access to the entities sprite object
-	 * @return sf::Sprite current entities sprite
-	 */
-	sf::Sprite GetSprite() { return sprite; }
-
-	/**
 	 * SetColour allows for post-construction alteration of the colour tint
 	 * @param colour a sf::Colour value
 	 */
@@ -83,7 +77,6 @@ public:
 
 protected:
 	std::string filename;
-	sf::Sprite sprite;
 	sf::Texture texture;
 	sf::Color colourTint;
 

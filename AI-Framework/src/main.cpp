@@ -77,11 +77,11 @@ int main()
 		//	entity->Update();
 		//}
 
-		//// and then draw them
-		//for (auto entity : BaseEntity::Renderables)
-		//{			
-		//	window.draw(entity->GetSprite(), entity->getTransform());
-		//}
+		// and then draw them
+		for (auto entity : BaseEntity::Renderables)
+		{			
+			window.draw(*entity);
+		}
 
 		grid.draw_grid(window, openCell, closedCell);
 
